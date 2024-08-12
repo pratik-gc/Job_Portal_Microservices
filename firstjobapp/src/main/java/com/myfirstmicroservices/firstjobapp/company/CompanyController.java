@@ -32,4 +32,22 @@ public class CompanyController {
         companyService.updateCompany(updatedCompany, companyId);
         return new ResponseEntity<>("Company Updated Successfully", HttpStatus.OK);
     }
+
+    @DeleteMapping("/{companyId}")
+    public ResponseEntity<String> deleteComapny(@PathVariable Long companyId){
+        boolean isDeleted = companyService.deleteCompanyById(companyId);
+        if (isDeleted)
+            return new ResponseEntity<>("Company deleted successfully", HttpStatus.OK);
+        else
+            return new ResponseEntity<>("Company could not be deleted!!!", HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/{companyId}")
+    public ResponseEntity<Company> getCompanyById(@PathVariable Long companyId){
+        Company company = companyService.getCompanyById(companyId);
+        if (company != null)
+            return new ResponseEntity<>(company, HttpStatus.FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
 }

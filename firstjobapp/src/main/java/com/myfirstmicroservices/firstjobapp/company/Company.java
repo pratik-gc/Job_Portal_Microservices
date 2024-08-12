@@ -1,5 +1,6 @@
 package com.myfirstmicroservices.firstjobapp.company;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myfirstmicroservices.firstjobapp.job.Job;
 import jakarta.persistence.*;
 
@@ -14,7 +15,8 @@ public class Company {
     private String name;
     private String description;
 
-    @OneToMany
+    @JsonIgnore   //This annnotation removes recursive callbacks from Company to Job & vice-versa.
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
 //    @ManyToMany

@@ -1,5 +1,6 @@
 package com.myfirstmicroservices.firstjobapp.job;
 
+import com.myfirstmicroservices.firstjobapp.company.Company;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
