@@ -16,7 +16,7 @@ public class Company {
     private String name;
     private String description;
 
-    @JsonIgnore   //This annnotation removes recursive callbacks from Company to Job & vice-versa.
+    @JsonIgnore   //This annotation removes recursive callbacks from Company to Job & vice-versa.
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
